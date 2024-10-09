@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="MyService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="peoplesSet" EntityType="MyService.peoplesSet"/>
+            </EntityContainer>
+            <EntityType Name="peoplesSet">
+                <Key>
+                    <PropertyRef Name="cid"/>
+                </Key>
+                <Property Name="cid" Type="Edm.Int16" Nullable="false"/>
+                <Property Name="name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="gender" Type="Edm.String" MaxLength="2"/>
+                <Property Name="age" Type="Edm.Int16"/>
+                <Property Name="amount" Type="Edm.Decimal" Scale="2" Precision="10"/>
+                <Property Name="country" Type="Edm.String" MaxLength="120"/>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
